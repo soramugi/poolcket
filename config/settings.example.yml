@@ -1,0 +1,11 @@
+defaults: &defaults
+  CONSUMER_KEY: CONSUMER_KEY
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
