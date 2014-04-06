@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :omniauthable
 
   def items
-    client.retrieve(sort: 'newest')['list']
+    Item.all_new client.retrieve(sort: 'newest')['list']
   end
 
   private
