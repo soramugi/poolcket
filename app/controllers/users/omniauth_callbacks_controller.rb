@@ -13,6 +13,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
   def user_params
-    request.env['omniauth.auth'].slice(:provider, :uid).to_h
+    auth = request.env['omniauth.auth']
+    { provider: auth.provider, token: auth.credentials.token }
   end
 end

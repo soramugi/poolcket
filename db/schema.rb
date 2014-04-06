@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406122902) do
+ActiveRecord::Schema.define(version: 20140406131326) do
 
   create_table "users", force: true do |t|
     t.string   "provider"
-    t.string   "uid"
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
+  add_index "users", ["provider", "token"], name: "index_users_on_provider_and_token", unique: true
 
 end
