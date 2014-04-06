@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  item_id: MyString
+  resolved_id: MyString
+  given_url: MyString
+  given_title: MyString
+  favorite: MyString
+  status: MyString
+  time_added: MyString
+  time_updated: MyString
+  time_read: MyString
+  time_favorited: MyString
+  sort_id: 1
+  resolved_title: MyString
+  resolved_url: MyString
+  excerpt: MyString
+  is_article: MyString
+  is_index: MyString
+  has_video: MyString
+  has_image: MyString
+  word_count: MyString
+
+two:
+  user_id: 1
+  item_id: MyString
+  resolved_id: MyString
+  given_url: MyString
+  given_title: MyString
+  favorite: MyString
+  status: MyString
+  time_added: MyString
+  time_updated: MyString
+  time_read: MyString
+  time_favorited: MyString
+  sort_id: 1
+  resolved_title: MyString
+  resolved_url: MyString
+  excerpt: MyString
+  is_article: MyString
+  is_index: MyString
+  has_video: MyString
+  has_image: MyString
+  word_count: MyString

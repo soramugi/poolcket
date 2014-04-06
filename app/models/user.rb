@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   devise :omniauthable
+  has_many :items
 
-  def items
-    Item.all_new client.retrieve(sort: 'newest')['list']
+  def create_item
+    Item.all_create(id, client.retrieve(sort: 'newest')['list'])
   end
 
   private
