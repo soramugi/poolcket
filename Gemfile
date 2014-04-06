@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'omniauth-pocket'
+gem 'pocket-ruby', '~> 0.0.5', require: 'pocket'
 group :doc do
   gem 'sdoc', require: false
 end
