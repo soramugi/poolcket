@@ -1,6 +1,7 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 
+<%= @items.first.external_player.html_safe %>
 <% @items.each do |item| %>
-  <p><%= item.external_player.html_safe %></p>
+  <p><%= link_to item.given_title, item.given_url %></p>
 <% end %>
