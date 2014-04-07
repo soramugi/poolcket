@@ -6,4 +6,8 @@ class Item < ActiveRecord::Base
       create h.merge({user_id: user_id})
     end
   end
+
+  before_create do |c|
+    c.given_url.include?('nicovideo.jp/watch/')
+  end
 end
