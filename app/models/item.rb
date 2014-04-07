@@ -1,3 +1,4 @@
+require 'open-uri'
 class Item < ActiveRecord::Base
   belongs_to :user
 
@@ -10,7 +11,16 @@ class Item < ActiveRecord::Base
   end
 
   def external_player
-    "<script type='text/javascript' src='http://ext.nicovideo.jp/thumb_watch/#{nico_id}'></script><noscript><a href='http://www.nicovideo.jp/watch/#{nico_id}'>#{given_title}</a></noscript>" if nicovideo?
+    if nicovideo?
+      html = open(
+        "http://ext.nicovideo.jp/thumb_watch/#{nico_id}",
+        'Referer' => 'http://www.nicovideo.jp/',
+      ).read.sub!(
+        %r{'thumbWatch': '1'},
+        "'fv_new_window': '1'\n,'fv_autoplay': '1'\n,'thumbWatch': '1'",
+        ).sub!(%r{.0.0.}, '.1.0.')
+      "<script type='text/javascript'>#{html}</script><noscript><a href='http://www.nicovideo.jp/watch/#{nico_id}'>#{given_title}</a></noscript>"
+    end
   end
 
   def self.all_create user_id,arr
