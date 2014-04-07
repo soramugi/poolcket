@@ -2,5 +2,5 @@
 <p>Find me in app/views/home/index.html.erb</p>
 
 <% @items.each do |item| %>
-  <p><%= item.given_title %></p>
+  <p><%= item.external_player.html_safe %></p>
 <% end %>
