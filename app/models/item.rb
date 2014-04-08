@@ -32,6 +32,10 @@ class Item < ActiveRecord::Base
     "<iframe width='312' height='176' src='http://ext.nicovideo.jp/thumb/#{nico_id}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'>#{link}</iframe>"
   end
 
+  def mylist_link
+    "http://www.nicovideo.jp/mylist_add/video/#{nico_id}"
+  end
+
   def next
     _item = Item.where("id > #{id} and user_id = #{user_id}").limit(1).first
     _item.nil? ?  Item.where(user_id: user_id).limit(1).first : _item
