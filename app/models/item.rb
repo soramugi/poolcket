@@ -19,8 +19,13 @@ class Item < ActiveRecord::Base
         %r{'thumbWatch': '1'},
         "'fv_new_window': '1'\n,'fv_autoplay': '1'\n,'thumbWatch': '1'",
         ).sub!(%r{.0.0.}, '.1.0.')
-      "<script type='text/javascript'>#{html}</script><noscript><a href='http://www.nicovideo.jp/watch/#{nico_id}'>#{given_title}</a></noscript>"
+      "<script type='text/javascript'>#{html}</script>" +
+        "<noscript>#{link}</noscript>"
     end
+  end
+
+  def link
+    "<a href='http://www.nicovideo.jp/watch/#{nico_id}'>#{given_title}</a>"
   end
 
   def next
