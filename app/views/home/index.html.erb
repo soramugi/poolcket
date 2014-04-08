@@ -2,11 +2,9 @@
 <p>Find me in app/views/home/index.html.erb</p>
 
 <% if @items.present? %>
-  <div id="player">
-    <iframe src="<%= player_path(@items.first.id) %>" frameborder="yes">
-      フレームを表示できないブラウザへのメッセージ
-    </iframe>
-  </div>
+  <iframe id="player" src="<%= player_path(@items.first.id) %>" frameborder="yes" width="600px" height="500px">
+    フレームを表示できないブラウザへのメッセージ
+  </iframe>
 <% end %>
 
 <div class="playlist">
