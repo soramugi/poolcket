@@ -29,7 +29,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.all_create user_id,arr
-    arr.map { |i,h| create h.merge({user_id: user_id}) }
+    arr.map { |i,h| _item = create(h.merge(user_id: user_id)); _item.id.nil? ? nil : _item }.compact
   end
 
   before_create do |c|
