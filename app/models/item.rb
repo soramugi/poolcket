@@ -32,7 +32,7 @@ class Item < ActiveRecord::Base
     "<iframe width='312' height='176' src='http://ext.nicovideo.jp/thumb/#{nico_id}' scrolling='no' style='border:solid 1px #CCC;' frameborder='0'>#{link}</iframe>"
   end
 
-  def mylist_link
+  def mylist_url
     "http://www.nicovideo.jp/mylist_add/video/#{nico_id}"
   end
 
