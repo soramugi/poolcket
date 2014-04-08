@@ -5,4 +5,5 @@ Poolcket::Application.routes.draw do
   devise_scope :user do
     get 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
+  get 'player/:id' => 'home#player', as: 'player'
 end

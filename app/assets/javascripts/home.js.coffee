@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$document = $(document)
+
+$document.on 'click', '.video', (e) ->
+  $("#player").html('Now Loading...')
+  id = e.target.href.split("#")[1]
+  html = '<iframe src="/player/'+id+'" frameborder="yes"></iframe>'
+  $("#player").html(html)
+  return false
+

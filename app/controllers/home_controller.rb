@@ -7,4 +7,9 @@ class HomeController < ApplicationController
       @items = current_user.create_item if @items.blank?
     end
   end
+
+  def player
+    @item = Item.find(params[:id])
+    render layout: false
+  end
 end
