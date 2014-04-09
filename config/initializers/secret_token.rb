@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Poolcket::Application.config.secret_key_base = '75e86c7ceaceb813c318b6ebcf9a2158776552fab285cd39355732f8f5d392577223468d914f12a4bfc65de2f1d9f54cfdf9ac8a6578af2446c52739d12f231d'
+Poolcket::Application.config.secret_key_base = ENV['SECRET_KEY_BASE'] || '75e86c7ceaceb813c318b6ebcf9a2158776552fab285cd39355732f8f5d392577223468d914f12a4bfc65de2f1d9f54cfdf9ac8a6578af2446c52739d12f231d'
