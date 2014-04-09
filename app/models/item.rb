@@ -32,7 +32,7 @@ class Item < ActiveRecord::Base
   def external_player
     if nicovideo?
       html = open(
-        "http://ext.nicovideo.jp/thumb_watch/#{nico_id}",
+        "http://ext.nicovideo.jp/thumb_watch/#{nico_id}?w=690&h=507",
         'Referer' => 'http://www.nicovideo.jp/',
       ).read.sub!(
         %r{'thumbWatch': '1'},
