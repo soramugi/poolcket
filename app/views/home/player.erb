@@ -3,6 +3,8 @@
 <%= @item.external_player.html_safe %>
 
 <p>
+<a href="javascript:void(window.location.reload());">リロード</a>
+
 <a href="javascript:void(window.open('<%= @item.mylist_url %>', null, 'width=480, height=360, menubar=no, toolbar=no, scrollbars=yes'));">マイリスト</a>
 
 <%= link_to 'archive', archive_path(@item.id), remote: true, method: 'post', data: {confirm: 'Archiveしますか？'} %>
