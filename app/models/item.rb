@@ -12,7 +12,7 @@ class Item < ActiveRecord::Base
     destroy
   end
 
-  def favorite
+  def fav
     user.client.modify [
       {
         action:  'favorite',
@@ -22,11 +22,12 @@ class Item < ActiveRecord::Base
   end
 
   def nicovideo?
-    given_url.include?('nicovideo.jp/watch/')
+    given_url.include?('www.nicovideo.jp/watch/')
   end
 
   def nico_id
-    given_url.match(/(sm[0-9]+)|(nm[0-9]+)/).captures.compact.first
+    matchs = given_url.match(/(sm[0-9]+)|(nm[0-9]+)/)
+    matchs.captures.compact.first if matchs.present?
   end
 
   def external_player

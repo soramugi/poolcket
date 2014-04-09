@@ -3,7 +3,7 @@ require 'test_helper'
 class ItemTest < ActiveSupport::TestCase
   test "nicovideo?" do
     item = Item.new
-    item.given_url = 'http://nicovideo.jp/watch/sm9'
+    item.given_url = 'http://www.nicovideo.jp/watch/sm9'
     assert item.nicovideo?
     item.given_url = 'http://google.com'
     assert !item.nicovideo?
@@ -12,13 +12,13 @@ class ItemTest < ActiveSupport::TestCase
   end
   test "nico_id" do
     item = Item.new
-    item.given_url = 'http://nicovideo.jp/watch/sm9'
+    item.given_url = 'http://www.nicovideo.jp/watch/sm9'
     assert_equal 'sm9', item.nico_id
   end
 
   test "external_player" do
     item = Item.new
-    item.given_url = 'http://nicovideo.jp/watch/sm9'
+    item.given_url = 'http://www.nicovideo.jp/watch/sm9'
     item.given_title = 'どーまんせーまん'
     assert item.external_player
   end

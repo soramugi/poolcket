@@ -23,7 +23,7 @@ class HomeController < ApplicationController
   end
 
   def favorite
-    if @item.favorite
+    if @item.fav
       render text: 'sucusess'
     else
       render text: 'failure'
