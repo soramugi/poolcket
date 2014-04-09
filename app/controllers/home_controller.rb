@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_action :set_item, only: [:player, :archive, :favorite]
+
   def index
     @items = []
 
@@ -9,7 +11,27 @@ class HomeController < ApplicationController
   end
 
   def player
-    @item = Item.find(params[:id])
     render layout: false
+  end
+
+  def archive
+    if @item.archive
+      render text: 'sucusess'
+    else
+      render text: 'failure'
+    end
+  end
+
+  def favorite
+    if @item.favorite
+      render text: 'sucusess'
+    else
+      render text: 'failure'
+    end
+  end
+
+  private
+  def set_item
+    @item = Item.find(params[:id])
   end
 end

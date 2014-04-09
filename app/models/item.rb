@@ -2,6 +2,25 @@ require 'open-uri'
 class Item < ActiveRecord::Base
   belongs_to :user
 
+  def archive
+    user.client.modify [
+      {
+        action: 'archive',
+        item_id: item_id,
+      }
+    ]
+    destroy
+  end
+
+  def favorite
+    user.client.modify [
+      {
+        action:  'favorite',
+        item_id: item_id,
+      }
+    ]
+  end
+
   def nicovideo?
     given_url.include?('nicovideo.jp/watch/')
   end

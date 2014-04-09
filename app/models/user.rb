@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
     Item.all_create(id, client.retrieve(sort: 'newest')['list'])
   end
 
-  private
   def client
     Pocket.client(consumer_key: Rails.configuration.consumer_key, access_token: token)
   end
