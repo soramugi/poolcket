@@ -6,19 +6,11 @@ class PlayerController < ApplicationController
   end
 
   def archive
-    if @item.archive
-      render text: 'sucusess'
-    else
-      render text: 'failure'
-    end
+    render text: @item.archive ? 'sucusess' : 'failure'
   end
 
   def favorite
-    if @item.fav
-      render text: 'sucusess'
-    else
-      render text: 'failure'
-    end
+    render text: @item.fav ? 'sucusess' : 'failure'
   end
 
   private
