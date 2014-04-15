@@ -6,7 +6,6 @@ class PlayerController < ApplicationController
   end
 
   def archive
-    raise unless current_user.id == @item.user_id
     if @item.archive
       render text: 'sucusess'
     else
@@ -15,7 +14,6 @@ class PlayerController < ApplicationController
   end
 
   def favorite
-    raise unless current_user.id == @item.user_id
     if @item.fav
       render text: 'sucusess'
     else
@@ -26,5 +24,6 @@ class PlayerController < ApplicationController
   private
   def set_item
     @item = Item.find(params[:id])
+    raise unless ! user_signed_in? || current_user.id == @item.user_id
   end
 end
