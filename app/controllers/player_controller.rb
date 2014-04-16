@@ -1,8 +1,18 @@
 class PlayerController < ApplicationController
-  before_action :set_item, only: [:show, :archive, :favorite]
+  before_action :set_item, only: [:show, :next, :prev, :archive, :favorite]
 
   def show
     render layout: false
+  end
+
+  def next
+    @item = @item.next
+    render action: 'show', layout: false
+  end
+
+  def prev
+    @item = @item.prev
+    render action: 'show', layout: false
   end
 
   def archive

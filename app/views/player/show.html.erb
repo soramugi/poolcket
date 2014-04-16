@@ -12,6 +12,11 @@
 <%= link_to 'favorite', favorite_path(@item.id), remote: true, method: 'post', data: {confirm: 'Favしますか？'} %>
 </p>
 
+<p>
+  <%= link_to '前', prev_player_path(@item.id) %>
+  <%= link_to '次', next_player_path(@item.id) %>
+</p>
+
 <%= @item.detail_html.html_safe %>
 
 <script type="text/javascript">
@@ -21,7 +26,7 @@
       //var player = document.getElementById(id);
       //player.ext_setPlayheadTime(0);
       // 次
-      location.href = "<%= player_path(@item.next.id) %>" ;
+      location.href = "<%= next_player_path(@item.id) %>" ;
     }
   }
 </script>

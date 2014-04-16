@@ -61,6 +61,11 @@ class Item < ActiveRecord::Base
     _item.nil? ?  Item.where(user_id: user_id).limit(1).first : _item
   end
 
+  def prev
+    _item = Item.where("id < #{id} and user_id = #{user_id}").limit(1).first
+    _item.nil? ?  Item.where(user_id: user_id).order('asc').limit(1).first : _item
+  end
+
   def self.all_create user_id,arr
     arr.map { |i,h| _item = create(h.merge(user_id: user_id)); _item.id.nil? ? nil : _item }.compact
   end
