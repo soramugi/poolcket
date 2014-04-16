@@ -13,8 +13,8 @@
 </p>
 
 <p>
-  <%= link_to '前', prev_player_path(@item.id) %>
-  <%= link_to '次', next_player_path(@item.id) %>
+  <%= link_to '前', prev_player_path(@item.id), class: 'prev_player_link' %>
+  <%= link_to '次', next_player_path(@item.id), class: 'next_player_link' %>
 </p>
 
 <%= @item.detail_html.html_safe %>
@@ -29,4 +29,12 @@
       location.href = "<%= next_player_path(@item.id) %>" ;
     }
   }
+  $('.prev_player_link').click(function () {
+      location.href = "<%= prev_player_path(@item.id) %>" ;
+      return false;
+  });
+  $('.next_player_link').click(function () {
+      location.href = "<%= next_player_path(@item.id) %>" ;
+      return false;
+  });
 </script>
