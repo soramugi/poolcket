@@ -48,7 +48,7 @@ class Item < ActiveRecord::Base
   end
 
   def link
-    "<a href='http://www.nicovideo.jp/watch/#{nico_id}'>#{given_title}</a>"
+    "<a href='http://www.nicovideo.jp/watch/#{nico_id}'>#{title}</a>"
   end
 
   def detail_html
@@ -61,12 +61,12 @@ class Item < ActiveRecord::Base
 
   def next
     _item = Item.where("id > #{id} and user_id = #{user_id}").limit(1).first
-    _item.nil? ?  Item.where(user_id: user_id).limit(1).first : _item
+    _item.nil? ? Item.where(user_id: user_id).limit(1).first : _item
   end
 
   def prev
     _item = Item.where("id < #{id} and user_id = #{user_id}").limit(1).first
-    _item.nil? ?  Item.where(user_id: user_id).order('asc').limit(1).first : _item
+    _item.nil? ? Item.where(user_id: user_id).order('id asc').limit(1).first : _item
   end
 
   def self.all_create user_id,arr

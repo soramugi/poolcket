@@ -1,4 +1,3 @@
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
 <%= @item.link.html_safe %>
 <%= @item.external_player.html_safe %>
@@ -13,8 +12,8 @@
 </p>
 
 <p>
-  <%= link_to '前', prev_player_path(@item.id), class: 'prev_player_link' %>
-  <%= link_to '次', next_player_path(@item.id), class: 'next_player_link' %>
+  <%= link_to '前', player_path(@item.prev.id), class: 'prev_player_link' %>
+  <%= link_to '次', player_path(@item.next.id), class: 'next_player_link' %>
 </p>
 
 <%= @item.detail_html.html_safe %>
@@ -26,15 +25,15 @@
       //var player = document.getElementById(id);
       //player.ext_setPlayheadTime(0);
       // 次
-      location.href = "<%= next_player_path(@item.id) %>" ;
+      location.href = "<%= player_path(@item.next.id) %>" ;
     }
   }
   $('.prev_player_link').click(function () {
-      location.href = "<%= prev_player_path(@item.id) %>" ;
+      location.href = "<%= player_path(@item.prev.id) %>" ;
       return false;
   });
   $('.next_player_link').click(function () {
-      location.href = "<%= next_player_path(@item.id) %>" ;
+      location.href = "<%= player_path(@item.next.id) %>" ;
       return false;
   });
 </script>
