@@ -4,6 +4,15 @@ class PlayerController < ApplicationController
   def show
   end
 
+  def all_archive
+    if user_signed_in?
+      current_user.items.each do |item|
+        item.archive
+      end
+      redirect_to root_path
+    end
+  end
+
   def archive
     render text: @item.archive ? 'sucusess' : 'failure'
   end
