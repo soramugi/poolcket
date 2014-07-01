@@ -43,6 +43,10 @@ class Item < ActiveRecord::Base
     end
   end
 
+  def title
+    given_title.present? ? given_title : resolved_title
+  end
+
   def link
     "<a href='http://www.nicovideo.jp/watch/#{nico_id}'>#{given_title}</a>"
   end
