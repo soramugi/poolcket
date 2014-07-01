@@ -1,22 +1,10 @@
 
-<%= @item.link.html_safe %>
 <%= @item.external_player.html_safe %>
-
-<p>
-<a href="javascript:void(window.location.reload());">リロード</a>
-
-<a href="javascript:void(window.open('<%= @item.mylist_url %>', null, 'width=480, height=360, menubar=no, toolbar=no, scrollbars=yes'));">マイリスト</a>
-
-<%= link_to 'archive', archive_path(@item.id), remote: true, method: 'post', data: {confirm: 'Archiveしますか？'} %>
-<%= link_to 'favorite', favorite_path(@item.id), remote: true, method: 'post', data: {confirm: 'Favしますか？'} %>
-</p>
 
 <p>
   <%= link_to '前', player_path(@item.prev.id), class: 'prev_player_link' %>
   <%= link_to '次', player_path(@item.next.id), class: 'next_player_link' %>
 </p>
-
-<%= @item.detail_html.html_safe %>
 
 <script type="text/javascript">
   function onNicoPlayerStatus(id, status){
@@ -29,11 +17,11 @@
     }
   }
   $('.prev_player_link').click(function () {
-      location.href = "<%= player_path(@item.prev.id) %>" ;
+    location.href = "<%= player_path(@item.prev.id) %>" ;
       return false;
   });
   $('.next_player_link').click(function () {
-      location.href = "<%= player_path(@item.next.id) %>" ;
+    location.href = "<%= player_path(@item.next.id) %>" ;
       return false;
   });
 </script>

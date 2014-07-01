@@ -29,22 +29,25 @@ class Item < ActiveRecord::Base
     matchs.captures.compact.first if matchs.present?
   end
 
-  def external_player
-    if nicovideo?
-      html = open(
-        "http://ext.nicovideo.jp/thumb_watch/#{nico_id}?w=690&h=507",
-        'Referer' => 'http://www.nicovideo.jp/',
-      ).read.sub!(
-        %r{'thumbWatch': '1'},
-        "'fv_new_window': '1'\n,'fv_autoplay': '1'\n,'thumbWatch': '1'",
-        ).sub!(%r{.0.0.}, '.1.0.')
-      "<script type='text/javascript'>#{html}</script>" +
-        "<noscript>#{link}</noscript>"
-    end
+  def external_player(width = 690, height = 507)
+    return nil unless nicovideo?
+    html = open(
+      "http://ext.nicovideo.jp/thumb_watch/#{nico_id}?w=#{width}&h=#{height}",
+      'Referer' => 'http://www.nicovideo.jp/',
+    ).read.sub!(
+      %r{'thumbWatch': '1'},
+      "'fv_new_window': '1'\n,'fv_autoplay': '1'\n,'thumbWatch': '1'",
+      ).sub!(%r{.0.0.}, '.1.0.')
+    "<script type='text/javascript'>#{html}</script>" +
+      "<noscript>#{link}</noscript>"
   end
 
   def title
     given_title.present? ? given_title : resolved_title
+  end
+
+  def watch_url
+    "http://www.nicovideo.jp/watch/#{nico_id}"
   end
 
   def link
