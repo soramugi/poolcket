@@ -1,10 +1,16 @@
 
-<%= @item.external_player.html_safe %>
+<div class="text-center">
+  <%= @item.external_player.html_safe %>
+</div>
 
-<p>
-  <%= link_to '前', player_path(@item.prev.id), class: 'prev_player_link' %>
-  <%= link_to '次', player_path(@item.next.id), class: 'next_player_link' %>
-</p>
+<ul class="pager">
+  <li class="previous">
+    <%= link_to '← Older', player_path(@item.prev.id) %>
+  </li>
+  <li class="next">
+    <%= link_to 'Newer →', player_path(@item.next.id) %>
+  </li>
+</ul>
 
 <script type="text/javascript">
   function onNicoPlayerStatus(id, status){
