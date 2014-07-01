@@ -1,4 +1,3 @@
-require 'open-uri'
 class Item < ActiveRecord::Base
   belongs_to :user
 
