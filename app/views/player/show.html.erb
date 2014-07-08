@@ -5,10 +5,10 @@
 
 <ul class="pager">
   <li class="previous">
-    <%= link_to '← Older', player_path(@item.prev.id) %>
+    <%= link_to '← Older', '#', class: 'prev_player_link' %>
   </li>
   <li class="next">
-    <%= link_to 'Newer →', player_path(@item.next.id) %>
+    <%= link_to 'Newer →', '#', class: 'next_player_link' %>
   </li>
 </ul>
 
