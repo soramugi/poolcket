@@ -11,4 +11,4 @@ http://getpocket.com/developer/
   rake db:migrate
   CONSUMER_KEY='POCKET_CONSUMER_KEY' rails s
 
-preview.png
+https://raw.githubusercontent.com/soramugi/poolcket/master/preview.png
