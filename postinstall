@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -e
-rm /home/sqale/current/config/database.yml
-ln -s /home/sqale/etc/database.yml /home/sqale/current/config/database.yml
-ln -s /home/sqale/etc/settings.yml /home/sqale/current/config/settings.yml

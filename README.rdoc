@@ -1,9 +1,14 @@
 == poolcket
 
-http://poolcket.herokuapp.com
+Automatic playback of Nicovideo is in Pocket
 
-  heroku create
-  heroku config:add CONSUMER_KEY=YOUR_CONSUMER_KEY
-  heroku config:add SECRET_KEY_BASE=$(rake secret)
-  git push heroku master
-  heroku run rake migrate
+
+Let's go to get POCKET_CONSUMER_KEY
+
+http://getpocket.com/developer/
+
+  bundle install
+  rake db:migrate
+  CONSUMER_KEY='POCKET_CONSUMER_KEY' rails s
+
+preview.png
