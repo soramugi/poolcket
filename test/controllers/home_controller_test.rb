@@ -6,14 +6,14 @@ class HomeControllerTest < ActionController::TestCase
   test "should not login get index" do
     get :index
     assert_response :success
-    assert_equal [], assigns['items']
+    assert assigns['items'].blank?
   end
 
   test "should login get index" do
     user = users(:one)
     sign_in user
     get :index
-    assert_response :success
+    assert_response :redirect
     assert_equal user.items, assigns['items']
   end
 
