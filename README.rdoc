@@ -1,5 +1,8 @@
 == poolcket
 
+{<img src="https://travis-ci.org/soramugi/poolcket.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/soramugi/poolcket]
+{<img src="https://gemnasium.com/soramugi/poolcket.svg" alt="Dependency Status" />}[https://gemnasium.com/soramugi/poolcket]
+
 Automatic playback of Nicovideo is in Pocket
 
 
