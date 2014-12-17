@@ -25,5 +25,7 @@ class PlayerController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
     raise unless ! user_signed_in? || current_user.id == @item.user_id
+  rescue
+    redirect_to root_path
   end
 end
